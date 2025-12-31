@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy New Year My Love</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background-image: url("wife.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #000;
+            position: relative;
+        }
+
+        /* Soft overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 182, 193, 0.5); /* baby pink overlay */
+            z-index: -1;
+        }
+
+        /* HEART ANIMATION */
+        .hearts span {
+            position: absolute;
+            display: block;
+            color: rgba(255, 105, 180, 0.75);
+            animation: float 14s linear infinite;
+            bottom: -50px;
+        }
+
+        .hearts span:nth-child(even) {
+            color: rgba(255, 182, 193, 0.85);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(0.6);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            100% {
+                transform: translateY(-130vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* MAIN CARD */
+        .container {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(255, 20, 147, 0.35);
+            animation: fadeIn 2.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2, .message, .signature, #countdown {
+            color: #000;
+        }
+
+        h1 {
+            font-size: 2.4em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+
+        .message {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .signature {
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        /* COUNTDOWN */
+        #countdown {
+            margin-top: 20px;
+            font-size: 1.2em; /* Make it more prominent */
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- HEARTS -->
+<div class="hearts">
+    <span style="left:5%; font-size:14px; animation-delay:0s;">♥</span>
+    <span style="left:10%; font-size:22px; animation-delay:2s;">♥</span>
+    <span style="left:20%; font-size:26px; animation-delay:1s;">♥</span>
+    <span style="left:30%; font-size:20px; animation-delay:5s;">♥</span>
+    <span style="left:40%; font-size:18px; animation-delay:4s;">♥</span>
+    <span style="left:50%; font-size:28px; animation-delay:1s;">♥</span>
+    <span style="left:60%; font-size:26px; animation-delay:2s;">♥</span>
+    <span style="left:70%; font-size:24px; animation-delay:1s;">♥</span>
+    <span style="left:80%; font-size:20px; animation-delay:5s;">♥</span>
+    <span style="left:90%; font-size:22px; animation-delay:1s;">♥</span>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h1>Happy New Year 2026</h1>
+        <h2>BANAGARAM </h2>
+
+        <div class="message">
+            Every year changes the calendar,<br>
+            but loving you has been my constant.<br><br>
+
+            As this new year begins, I want you to know—<br>
+            I choose you, today and always.<br><br>
+
+            I promise to walk beside you,<br>
+            celebrate your smiles,<br>
+            and love you deeper with every passing year.<br><br>
+
+            May 2026 bring us more laughter,<br>
+            more dreams fulfilled,<br>
+            and a lifetime of togetherness.<br><br>
+
+            HAPPY NEW YEAR BANGARTHALLI<br>
+            LOVE YOU SO MUCHHHH
+        </div>
+
+        <div class="signature">
+            Forever yours<br>
+        
+        </div>
+
+        <div id="countdown"></div>
+    </div>
+</div>
+
+<script>
+    const countdownEl = document.getElementById("countdown");
+    const newYear = new Date("January 1, 2026 00:00:00").getTime();
+
+    setInterval(() => {
+        const now = new Date().getTime();
+        const diff = newYear - now;
+
+        if (diff < 0) {
+            countdownEl.innerHTML = "A new year, a forever love 💖";
+            return;
+        }
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+
+        countdownEl.innerHTML = `New beginnings in ${h}h ${m}m ${s}s`;
+    }, 1000);
+</script>
+
+</body>
+</html>
